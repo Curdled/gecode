@@ -1,0 +1,17 @@
+version 0.2
+
+phases:
+  install:
+    commands:
+      - echo Entered the install phase...
+      - apt-get update -y
+      - apt-get g++-6
+  build:
+    commands:
+       - echo Entered the build phase...
+       - cmake . -DENABLE_GIST=NO
+       - make -j 4
+
+artifacts:
+  - install.sh
+
