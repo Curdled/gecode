@@ -5,12 +5,14 @@ phases:
     commands:
       - echo Entered the install phase...
       #- sudo apt-get update
-      #- sudo apt-get install g++-6
+      - sudo apt-get install g++-6
+      - sudo apt-get install cmake
+      - sudo apt-get install build-essential
   build:
     commands:
        - echo Entered the build phase...
        - cmake . -DENABLE_GIST=NO
-       - make -j 4
+       - make -j 2
 
 artifacts:
   files:
