@@ -4,17 +4,19 @@ phases:
   install:
     commands:
       - echo Entered the install phase...
-      - apt-get update -y
-      - apt-get install -y g++-6
-      - apt-get install -y cmake
-      - apt-get install -y build-essential
+      - yum groupinstall -y "Development Tools"
+      - yum install -y cmake3.x86_64
   build:
     commands:
        - echo Entered the build phase...
-       - cmake . -DENABLE_GIST=NO
+       - echo Entered the build phase...
+       - mkdir build
+       - cd build
+       - cmake3 ../ -DENABLE_GIST=NO
        - make -j 2
+       - cd ../
 
 artifacts:
   files:
-    - install.sh
-
+    - build/*.a
+    - build/bin/fzn-gecode
